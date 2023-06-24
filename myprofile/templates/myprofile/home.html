@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% block intro %}
+    {% include 'myprofile/intro.html'%}
+    {% endblock intro %}
+    <br>
+    {% block skills %}
+    <style>
+        .skillsection{
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .skillsection ul{
+            width: 100%;
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: space-around;
+        }
+        .skillsection ul li{
+            text-align: center;
+            list-style: none;
+            height: 550px;
+            width: 450px;
+            overflow: hidden;
+            margin: 10px;
+            padding: 10px;
+        }
+        .skillsection ul li img{
+            width: 300px;
+            height: 300px;
+            padding-top: 40px;
+        }
+        .skillsection ul li a{
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+        }
+        .skillsection ul li h1{
+            padding-top: 10px;
+            font-size: 35px;
+        }
+        .skillsection ul li h2{
+            font-size: 18px;
+            padding-top: 30px;
+            font-family: 'Lucida Sans' ,sans-serif;
+        }
+        .skillsection ul li:active,
+        .skillsection ul li:hover{
+            box-shadow:0 0 15px 5px rgba(0,0,0,0.3);
+        }
+        .skillsection ul li:active,
+        .skillsection ul li:hover img{
+            filter: invert(100%);
+        }
+        .skillsection ul li:active,
+        .skillsection ul li:hover a{
+            color: grey;
+            text-decoration: underline;
+        }
+        .skillsection .title1{
+            width: 100%;
+            text-align: center;
+            justify-content: space-around;
+            padding-bottom: 50px;
+            padding-top: 50px;
+        }
+        .title1 a{
+            text-decoration: none;
+            text-align: center;
+            color: black;
+            font-size: 40px;
+        }
+        .title1 a:hover,
+        .title1 a:active{
+            color: grey;
+            letter-spacing: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        .title1:hover a{
+            color: grey;
+            letter-spacing: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        /* projects */
+        .projectssection{
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .projectssection .title1{
+            width: 100%;
+            text-align: center;
+            justify-content: space-around;
+            padding-bottom: 50px;
+            padding-top: 50px;
+        }
+        .projectssection ul{
+            width: 100%;
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: space-around;
+        }
+        .projectssection ul li{
+            text-align: center;
+            list-style: none;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid grey;
+        }
+        .projectssection ul li a{
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+        }
+        .projectssection ul li:active,
+        .projectssection ul li:hover{
+            box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
+        }
+        /*form*/
+        .form-control{
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            padding-left: 20px;
+            font-size: 20px;
+        }
+        .form-control .heading{
+            padding: 10px;
+            margin: 10px;
+        }
+        .bttn{
+            margin: 10px;
+            padding: 10px;
+            width: 250px;
+            height: 60px;
+            background: white;
+            border-radius: 5px;
+            font-size: 20px;
+            border: 0.2px solid rgba(0,0,0,0.3);
+        }
+        .bttn:active,
+        .bttn:hover{
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+        }
+    </style>
+    <br>
+    <section class="skillsection">
+        <h1 class="title1" title="click here for ALL SKILLS"><a href="{% url 'allskills' %}">My Skills</a></h1>
+        <ul>        
+            {% for skill in skills %}
+            <li>
+                <h1><a href="{% url 'singleskill' skill.id %}">{{skill.skillname|capfirst}}</a></h1>
+                <a href=""><img src="{{ skill.skillimage.url }}" alt=""></a>
+                <h2>{{ skill.skillquote }}</h2>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endblock skills%}
+    <br>
+    {% block projects %}
+    <section class="projectssection">
+        <h1 class="title1" title="click here for ALL PROJECTS"><a href="{% url 'allprojects'%}">My Projects</a></h1>
+        <ul>
+            {% for project in projects %}
+            <li>
+                <h1><a href="">{{project.projectname}}</a></h1>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <br>
+    {% endblock projects %}
+    {% block contact %}
+    <section class="form-control">
+        <h1 class="heading">Please Message me</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="field-tag">
+            {{field}}
+        </div>
+        {% endfor %}
+        <button type="submit" class="bttn">SEND</button>
+    </form>
+    </section>
+    {% endblock contact %}
+    <br>
+{% endblock %}

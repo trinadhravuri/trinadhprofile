@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+<section>
+    <div>
+    <img src="{{skill.skillimage.url}}" alt="">
+    </div>
+    <div>
+        <h1>{{skill.skillname}}</h1>
+        <h2>{{skill.skillquote}}</h2>
+    </div>
+    <div>
+        {{skill.skilldescription}}
+    </div>
+    <div>
+        <ul>
+            <li><a href=""><i class="fa-brands fa-wiki"></i></a></li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .allprojects{
+        display: flex;
+        position: relative;
+        flex-wrap: wrap;
+        top:150px;
+        text-align: center;
+        justify-content: space-around;
+        padding: 30px;
+    }
+    .allprojects a{
+        text-decoration: none;
+        color: black;
+    }
+    .allprojects .title2{
+        font-size: 80px;
+        padding-bottom: 130px;
+    }
+    .allprojects ul{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: space-around;
+    }
+    .allprojects ul li{
+        height: 200px;
+        width: 300px;
+        margin: 20px;
+        padding: 30px;
+        list-style: none;
+        overflow: hidden;
+    }
+    .allprojects ul li img{
+        height: 300px;
+        width: 300px;   
+    }
+    .allprojects ul li a{
+        text-decoration: none;
+        color: black;
+    }
+    .allprojects ul li:active,
+    .allprojects ul li:hover{
+        box-shadow: 0 0 10px 6px rgba(0,0,0,0.3);
+    }
+    .allprojects ul li:active,
+    .allprojects ul li:hover img{
+        filter: invert(100%);
+    }
+    .allprojects ul li:active,
+    .allprojects ul li:hover .projectname{
+        font-size: 25px;
+        text-decoration: underline;
+        color: #454647;
+    }
+    .projectquote{
+        font-family: cursive;
+        padding-top: 20px;
+        font-size: 15px;
+    }
+</style>
+<section class="allprojects">
+    <h1 class="title2">All Projects</h1>
+        <ul>
+            {% for project in projects %}
+            <a href="">
+            <li>
+                <h1 class="projectname">{{project.projectname|upper}}</h1>
+                <h2 class="projectquote">{{project.projectquote}}</h2>
+            </li>
+            </a>
+            {% endfor %}
+        </ul>
+</section>
+<br>
+<br>
+{% endblock %}

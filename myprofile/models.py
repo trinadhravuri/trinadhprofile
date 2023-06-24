@@ -9,6 +9,9 @@ class Skills(models.Model):
     skilldescription = models.TextField(max_length=10000)
     def __str__(self):
         return self.skillname
+
+    class Meta:
+        verbose_name_plural = 'Skills'
     
 class Projects(models.Model):
     projectname= models.CharField(max_length=100)
@@ -20,6 +23,8 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.projectname
+    class Meta:
+        verbose_name_plural = 'Projects'
 
 class Enquiry(models.Model):
     name = models.CharField(max_length=100)
@@ -30,3 +35,9 @@ class Enquiry(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = 'Enquiries'
+
+class downloadcv(models.Model):
+    file = models.FileField(upload_to='files',null=True)

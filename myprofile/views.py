@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Enquiry,Skills,Projects
 from .forms import EnquiryForm
 from django.contrib import messages
-import tkinter as tk
+
 # Create your views here.
 
 def base(request):

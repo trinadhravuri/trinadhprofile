@@ -207,6 +207,10 @@
             padding: 10px;
             line-height: 25px;
         }
+        .social-links{
+            position: relative;
+            top: 50px;
+        }
         .social-links ul{
             display: flex;
             flex-wrap: wrap;
@@ -312,7 +316,6 @@
     {% block contact %}
     <section class="form-control">
         <h1 class="heading">Please Message me</h1>
-    {% include 'myprofile/includes/messages.html'%}
     <form method="POST">
         {% csrf_token %}
         {% for field in form %}

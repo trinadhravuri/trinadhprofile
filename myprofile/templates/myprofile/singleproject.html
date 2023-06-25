@@ -78,7 +78,7 @@
         <h1>Used Skills</h1>
         <ul>
             {% for skill in skills %}
-            <li><a href="">{{skill}}</a></li>
+            <li><a href="{% url 'singleskill' skill.id %}">{{skill}}</a></li>
             {% endfor %}
         </ul>
     </div>

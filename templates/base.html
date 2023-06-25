@@ -57,6 +57,18 @@
     .header .nav ul li a:hover{
         color: white;
     }
+    .social-links{
+        position: relative;
+        top: 150px;
+    }
+    .footer{
+        position: relative;
+        top: 150px;
+    }
+    .message{
+        position: relative;
+        top: 150px;
+    }
 </style>
 <body>
     <section class="header">
@@ -70,17 +82,18 @@
                 <li><a href="#about">About Me</a></li>
                 <li><a href="{% url 'allskills' %}">All Skills</a></li>
                 <li><a href="{% url 'allprojects' %}">All Projects</a></li>
-                <li><a href="">Contact Me</a></li>
+                <li><a href="{% url 'contactme' %}">Contact Me</a></li>
             </ul>
         </div>
     </section>
     <br>
+    <div class="message">
+        {% include 'myprofile/includes/messages.html'%}
+    </div>
     {% block content %}
     
     {% endblock %}
     <br>
-    
-    <hr>
     <section class="social-links">
         <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
         <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
@@ -88,7 +101,7 @@
         <li><a href=""><i class="fa-brands fa-github"></i></a></li>
     </section>
     <br>
-    <hr>
+
     <section class="footer">
         <div>
             <h2>Address</h2>
@@ -100,7 +113,7 @@
         </div>
         <div>
             <h2>Contact</h2>
-            <li><h2>Call me <a href=""><i class="fa-solid fa-phome"></i></a></h2></li>
+            <li><h2>Call me <a href=""><i class="fa-solid fa-phone"></i></a></h2></li>
             <li><h2>Email me <a href=""><i class="fa-solid fa-envelope"></i></a></h2></li>
         </div>
     </section>

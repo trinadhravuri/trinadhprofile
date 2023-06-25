@@ -11,4 +11,6 @@ urlpatterns = [
     path('allskills',views.allskills,name='allskills'),
     path('/<int:pk>',views.singleskill,name='singleskill'),
     path('<int:pk>',views.singleproject,name='singleproject'),
+    path('contactme',views.contactme,name='contactme'),
+    path('enqsuc',views.enqsuccess,name='enqsuc'),
 ]

@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .models import Enquiry,Skills,Projects
 from .forms import EnquiryForm
+from django.contrib import messages
+import tkinter as tk
 # Create your views here.
 
 def base(request):
@@ -16,7 +18,8 @@ def home(request):
         form = EnquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            messages.success(request,'Enquiry submitted successfully')
+            return redirect('enqsuc')
     context ={
         'skills':skills,
         'projects':projects,
@@ -53,3 +56,19 @@ def singleproject(request,pk):
         'skills':skills
     }
     return render(request,'myprofile/singleproject.html',context)
+
+def contactme(request):
+    form = EnquiryForm
+    if request.method == 'POST':
+        form = EnquiryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Enquiry submitted successfully')
+            return redirect('enqsuc')
+    context ={
+        'form':form
+    }
+    return render(request,'myprofile/contactme.html',context)
+
+def enqsuccess(request):
+    return render(request,'myprofile/enquirysuccess.html')

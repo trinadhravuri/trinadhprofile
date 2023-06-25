@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+   .form-control{
+            position: relative;
+            top: 50px;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            padding-left: 20px;
+            font-size: 20px;
+        }
+        .form-control .heading{
+            position: relative;
+            top: 60px;
+            padding: 10px;
+            margin: 10px;
+        }
+    .bttn{
+            position: relative;
+            top: 60px;
+            margin: 10px;
+            padding: 10px;
+            width: 250px;
+            height: 60px;
+            background: white;
+            border-radius: 5px;
+            font-size: 20px;
+            border: 0.2px solid rgba(0,0,0,0.3);
+            z-index: 99;
+        }
+        .bttn:active,
+        .bttn:hover{
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+        }
+</style>
+<section class="form-control">
+    <h1 class="heading">Please Message me</h1>
+<form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="field-tag">
+        {{field}}
+    </div>
+    {% endfor %}
+    <button type="submit" class="bttn">SEND</button>
+</form>
+</section>
+{% endblock %}

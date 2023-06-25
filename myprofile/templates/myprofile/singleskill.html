@@ -2,21 +2,64 @@
 
 
 {% block content %}
-<section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .singleskill{
+        position:relative;
+        top: 100px;
+        margin: 30px;
+        padding: 30px;
+        padding-bottom: 50px;
+    }
+    .singleskill img{
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+    }
+    .singleskill .skillname{
+        font-size: 80px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .singleskill .skillquote{
+        font-family: cursive;
+        font-size: 20px;
+        padding-bottom: 50px;
+    }
+    .singleskill .skilldesc{
+        line-height: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .singleskill ul{
+        display: flex;
+
+    }
+    .font-icon{
+        list-style: none;
+        font-size: 40px;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+<section class="singleskill">
     <div>
     <img src="{{skill.skillimage.url}}" alt="">
     </div>
     <div>
-        <h1>{{skill.skillname}}</h1>
-        <h2>{{skill.skillquote}}</h2>
+        <h1 class="skillname">{{skill.skillname|upper}}</h1>
+        <h2 class="skillquote">{{skill.skillquote}}</h2>
     </div>
-    <div>
+    <div class="skilldesc">
         {{skill.skilldescription}}
     </div>
     <div>
         <ul>
-            <li><a href=""><i class="fa-brands fa-wiki"></i></a></li>
+            <li class="font-icon"><a href="https://www.wikipedia.org/"><i class="fa-brands fa-wikipedia-w"></i></a></li>
+            <li class="font-icon"><a href="https://www.google.com/"><i class="fa-brands fa-google"></i></a></li>
         </ul>
     </div>
 </section>
+<br>
 {% endblock %}

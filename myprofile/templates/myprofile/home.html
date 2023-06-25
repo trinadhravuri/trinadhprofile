@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% block intro %}
     {% include 'myprofile/intro.html'%}
     {% endblock intro %}
@@ -147,15 +148,147 @@
             color: white;
             border: none;
         }
+        /* about me */
+        .about{
+            text-align: center;
+            position: relative;
+        }
+        .abouttitle{
+            font-size: 40px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .aboutname{
+            font-size: 25px;
+            padding-bottom: 20px;
+        }
+        .aboutname span{
+            letter-spacing: 3px;
+            font-size: 30px;
+        }
+        .content{
+            line-height: 30px;
+            font-size: 18px;
+            padding-bottom: 10px;
+        }
+        .content h4{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            padding-bottom:10px ;
+        }
+        .content h2{
+            font-size: 19px;
+        }
+        .content a{
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .content a:hover,
+        .content a:active{
+            text-decoration: underline;
+        }
+        .education{
+            padding-top: 10px;
+        }
+        .education ul{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            margin: 10px;
+            padding: 10px;
+        }
+        .education ul li{
+            list-style: none;
+            width: 250px;
+            height: 140px;
+            margin: 10px;
+            padding: 10px;
+            line-height: 25px;
+        }
+        .social-links ul{
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+        }
+        .social-links ul li{
+            list-style: none;
+            font-size: 45px;
+        }
+        .social-links ul li a{
+            color: black;
+        }
+        .social-links ul li:active,
+        .social-links ul li:hover a{
+            color: red;
+        }
     </style>
     <br>
+    <section class="about" id="about">
+        <h1 class="abouttitle">About Me</h1>
+        <h3 class="aboutname">Hi..! Myself <span>Trinadh Ravuri.</span></h3>
+        <div class="content">   
+            <h4>I am having total 7+ years of experience in IT.</h4>
+            <h4>Current I am working as an <a href="">Automation Test engineer</a>.</h4>
+            <h4><a href="">Automation Testing</a> with <a href="">PYTHON</a> and <a href="">SELENIUM</a></h4>
+            <h4>I had worked as an <a href="">Manual Tester</a> and before that started career as Sysytem Adminstrator.</h4>
+            <h2>As i am very much interested in <a href="">PYTHON</a>, I have learned and worked on Python development with <a href="">Django</a> and <a href="">REST frameworks</a></h2>
+            <h3>I also worked with small desktop applications.</h3>
+            <h2>I would like to work in the DEVELOPMENT Environment.</h2>
+        </div>
+        <div class="education">
+            <h2 style="text-decoration: underline;">My Education</h2>
+            <ul>
+                <li>
+                    <h3>10th</h2>
+                    <h2>Surya Public School</h2>
+                    <h4>Narasaraopet</h4>
+                    <h5>Percent : 85%</h5>
+                </li>
+                <li>
+                    <h3>Board of Intermediate</h2>
+                    <h2>Sadana college</h2>
+                    <h4>Narasaraopet</h4>
+                    <h5>Percent : 73.7%</h5>
+                </li>
+                <li>
+                    <h3>Bachelor of Sciences(electronics)</h2>
+                    <h2>S S & N college</h2>
+                    <h4>Narasaraopet</h4>
+                    <h5>Percent : 75%</h5>
+                </li>
+                <li>
+                    <h3>Master in Computer Applications</h2>
+                    <h2>Holy Mary Institutions</h2>
+                    <h4>hyderabad</h4>
+                    <h5>Percent : 65%</h5>
+                </li>
+            </ul>
+        </div>
+        <div class="hobbies">
+
+        </div>
+        <div class="social-links">
+            <ul>
+                <li><a href="https://www.facebook.com/trinadh.acharya.5/"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/trinadhachary"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/ravuri-achari-95b98b1a/"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/trinadhravuri"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+        </div>
+    </section>
     <section class="skillsection">
         <h1 class="title1" title="click here for ALL SKILLS"><a href="{% url 'allskills' %}">My Skills</a></h1>
         <ul>        
             {% for skill in skills %}
             <li>
                 <h1><a href="{% url 'singleskill' skill.id %}">{{skill.skillname|capfirst}}</a></h1>
-                <a href=""><img src="{{ skill.skillimage.url }}" alt=""></a>
+                <a href="{% url 'singleskill' skill.id %}"><img src="{{ skill.skillimage.url }}" alt=""></a>
                 <h2>{{ skill.skillquote }}</h2>
             </li>
             {% endfor %}
@@ -169,7 +302,7 @@
         <ul>
             {% for project in projects %}
             <li>
-                <h1><a href="">{{project.projectname}}</a></h1>
+                <h1><a href="{% url 'singleproject' project.id %}">{{project.projectname}}</a></h1>
             </li>
             {% endfor %}
         </ul>
@@ -191,4 +324,5 @@
     </section>
     {% endblock contact %}
     <br>
+    <script src="{% static 'styles/intro.js'%}"></script>
 {% endblock %}

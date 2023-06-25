@@ -10,4 +10,5 @@ urlpatterns = [
     path('allprojects/',views.allprojects,name='allprojects'),
     path('allskills',views.allskills,name='allskills'),
     path('/<int:pk>',views.singleskill,name='singleskill'),
+    path('<int:pk>',views.singleproject,name='singleproject'),
 ]

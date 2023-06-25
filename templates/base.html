@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Trinadh Ravuri</title>
 </head>
 <style>
@@ -66,7 +67,7 @@
         <div class="nav">
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="">About Me</a></li>
+                <li><a href="#about">About Me</a></li>
                 <li><a href="{% url 'allskills' %}">All Skills</a></li>
                 <li><a href="{% url 'allprojects' %}">All Projects</a></li>
                 <li><a href="">Contact Me</a></li>
@@ -104,4 +105,5 @@
         </div>
     </section>
 </body> 
+<script src="{% static 'styles/intro.js'%}"></script>
 </html>

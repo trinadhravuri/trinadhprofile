@@ -26,18 +26,19 @@
     }
     .header .home{
         display: flex;
-        justify-content: space-around;
+        flex-wrap: nowrap;
+        justify-content: center;
     }
     .header .home img{
-        height: 50px;
-        width: 50px;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
     }
     .header .home{
         margin: 10px;
     }
     .header .home .name{
         padding: 10px;
-        margin: 20px;
         letter-spacing: 2px;
     }
     .header .nav ul{
@@ -69,11 +70,80 @@
         position: relative;
         top: 150px;
     }
+    /*footer*/
+    .footer{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+    }
+    .add{
+        line-height: 30px;
+        margin: 30px;
+        padding: 30px;
+    }
+    .add ul li{
+        list-style: none;
+        padding: 10px;
+        font-size: 13px;
+        font-style: italic;
+    }
+    .add h1{
+        text-decoration: underline;
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+    .con{
+        line-height: 30px;
+        margin: 30px;
+        padding: 30px;
+    }
+    .con li{
+        list-style: none;
+        padding: 20px;
+        font-size: 13px;
+        font-style: italic;
+        
+    }
+    .con li i{
+        color: crimson;
+    }
+    .con h1{
+        text-decoration: underline;
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    /*social links*/
+    .social-links{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .social-links li{
+        list-style: none;
+    }
+    .social-links li a{
+        font-size: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: black;
+    }
+    .social-links li a:active,
+    .social-links li a:hover{
+        color: crimson;
+    }
 </style>
 <body>
     <section class="header">
         <div class="home">
-            <img src="{% static 'images/webprofile.png' %}" alt="">
+            <img src="{% static 'images/123.png' %}" alt="">
             <h1 class="name"><span>T</span>rinadh <span>R</span>avuri</h1>
         </div>
         <div class="nav">
@@ -87,8 +157,6 @@
         </div>
     </section>
     <br>
-    <div class="message">
-    </div>
     {% block content %}
     
     {% endblock %}
@@ -102,20 +170,22 @@
     <br>
 
     <section class="footer">
-        <div>
-            <h2>Address</h2>
+        <div class="add">
+            <h1>Address</h1>
             <ul>
-                <li><h2>narasearopet</h2></li>
+                <li><h2>Narasearopet</h2></li>
                 <li><h2>Guntur</h2></li>
                 <li><h2>Andhra Pradesh</h2></li>
+                <li><h2>522601</h2></li>
             </ul>
         </div>
-        <div>
-            <h2>Contact</h2>
-            <li><h2>Call me <a href=""><i class="fa-solid fa-phone"></i></a></h2></li>
-            <li><h2>Email me <a href=""><i class="fa-solid fa-envelope"></i></a></h2></li>
+        <div class="con">
+            <h1>Contact</h1>
+            <li><h2>Call me <a href="tel:+917658962143"><i class="fa-solid fa-phone"></i></a></h2></li>
+            <li><h2>Email me <a href="mailto:trinadh.ravz@gmail.com"><i class="fa-solid fa-envelope"></i></a></h2></li>
         </div>
     </section>
 </body> 
 <script src="{% static 'styles/intro.js'%}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>

@@ -25,11 +25,13 @@
         font-size: 90px;
         margin:20px;
         padding: 20px;
+        text-shadow:0 15px 5px rgba(0,0,0,0.3);
     }
     .intro .matter .prof{
         font-size: 70px;
         margin: 30px;
         padding: 30px;
+        text-shadow:0 15px 5px rgba(0,0,0,0.3);
     }
     .intro .matter h3{
         font-size: 30px;
@@ -50,8 +52,12 @@
         color: white;
     }
     .intro img{
+        position: relative;
+        top: 60px;
         width: 700px;
         height: 800px;
+        box-shadow: 0 0 16px 6px rgba(0,0,0,0.3);
+        background-color: black;
     }
     .intro h4{
         font-size: 40px;
@@ -60,7 +66,7 @@
 </style>
 <section class="intro">
     <div>
-        <img src="{% static 'images/webprofile.png'%}" alt="">
+        <img src="{% static 'images/profile.jpg'%}" alt="">
     </div>
     <div class="matter">
         <h1 class="hello">Hello..!</h1>
